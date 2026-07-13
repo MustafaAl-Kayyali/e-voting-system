@@ -1,0 +1,44 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "test:concurrency": "node tests/concurrency/castVoteConcurrency.js",
+    "start": "node server.js",
+    "worker": "node worker.js",
+    "dev": "nodemon server.js",
+    "dev:worker": "nodemon worker.js",
+    "fix:districts": "node scripts/fixElectionDistrict.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.70.4",
+    "cors": "^2.8.6",
+    "crypto": "^1.0.1",
+    "csv": "^6.5.1",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.4.1",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.10.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.1",
+    "morgan": "^1.10.1",
+    "multer": "^2.1.1",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.4",
+    "rate-limit-redis": "^4.3.1",
+    "speakeasy": "^2.0.0"
+  },
+  "devDependencies": {
+    "@express-rate-limit/tsconfig": "^1.0.2",
+    "nodemon": "^3.1.14"
+  }
+}

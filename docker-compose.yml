@@ -1,0 +1,109 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  mongo:
+    image: mongo:7
+    command: ["--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mongo-init:
+    image: mongo:7
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: "no"
+    entrypoint: >
+      bash -c "
+      mongosh --host mongo:27017 --eval \"
+      try { rs.status(); } catch(e) {
+        rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'mongo:27017' }] });
+      }
+      \" && sleep 5"
+
+  api1:
+    build: ./backend
+    environment:
+      PORT: 3000
+      INSTANCE_ID: api-1
+      REDIS_URL: redis://redis:6379
+      DISTRIBUTED_VOTING: "true"
+      DATABASE: mongodb://mongo:27017/evoting?replicaSet=rs0
+      JWT_SECRET: ${JWT_SECRET:-change_me_in_production}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change_me_32_byte_encryption_key!!}
+      # High limits for benchmarking from a single host; override for production.
+      RATE_LIMIT_GLOBAL_MAX: ${RATE_LIMIT_GLOBAL_MAX:-1000000}
+      RATE_LIMIT_VOTE_MAX: ${RATE_LIMIT_VOTE_MAX:-1000000}
+      AUTH_RATE_LIMIT_MAX: ${AUTH_RATE_LIMIT_MAX:-1000000}
+    depends_on:
+      mongo-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    command: node server.js
+
+  api2:
+    build: ./backend
+    environment:
+      PORT: 3000
+      INSTANCE_ID: api-2
+      REDIS_URL: redis://redis:6379
+      DISTRIBUTED_VOTING: "true"
+      DATABASE: mongodb://mongo:27017/evoting?replicaSet=rs0
+      JWT_SECRET: ${JWT_SECRET:-change_me_in_production}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change_me_32_byte_encryption_key!!}
+      # High limits for benchmarking from a single host; override for production.
+      RATE_LIMIT_GLOBAL_MAX: ${RATE_LIMIT_GLOBAL_MAX:-1000000}
+      RATE_LIMIT_VOTE_MAX: ${RATE_LIMIT_VOTE_MAX:-1000000}
+      AUTH_RATE_LIMIT_MAX: ${AUTH_RATE_LIMIT_MAX:-1000000}
+    depends_on:
+      mongo-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    command: node server.js
+
+  worker:
+    build: ./backend
+    environment:
+      INSTANCE_ID: vote-worker
+      REDIS_URL: redis://redis:6379
+      DISTRIBUTED_VOTING: "true"
+      DATABASE: mongodb://mongo:27017/evoting?replicaSet=rs0
+      JWT_SECRET: ${JWT_SECRET:-change_me_in_production}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change_me_32_byte_encryption_key!!}
+      VOTE_WORKER_CONCURRENCY: 5
+    depends_on:
+      mongo-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    command: node worker.js
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+
+volumes:
+  mongo_data:

@@ -1,0 +1,290 @@
+[
+  {
+    "timestamp": "2026-06-02T14:58:40.559Z",
+    "mode": "distributed",
+    "base": "http://localhost:8080",
+    "rep": 1,
+    "votes": 60,
+    "concurrency": 10,
+    "wallSeconds": 7.74,
+    "throughputPerSec": 7.75,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 300.66,
+      "mean": 1253.16,
+      "p50": 914.34,
+      "p95": 3432.57,
+      "p99": 5931.05,
+      "max": 5931.05
+    }
+  },
+  {
+    "timestamp": "2026-06-02T14:59:03.331Z",
+    "mode": "distributed",
+    "base": "http://localhost:8080",
+    "rep": 2,
+    "votes": 60,
+    "concurrency": 10,
+    "wallSeconds": 4.75,
+    "throughputPerSec": 12.63,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 236.97,
+      "mean": 743.54,
+      "p50": 582.43,
+      "p95": 1693.47,
+      "p99": 3832.09,
+      "max": 3832.09
+    }
+  },
+  {
+    "timestamp": "2026-06-02T14:59:25.176Z",
+    "mode": "distributed",
+    "base": "http://localhost:8080",
+    "rep": 1,
+    "votes": 60,
+    "concurrency": 25,
+    "wallSeconds": 4.51,
+    "throughputPerSec": 13.32,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 324.58,
+      "mean": 1449.49,
+      "p50": 1356.94,
+      "p95": 2444.85,
+      "p99": 3184.98,
+      "max": 3184.98
+    }
+  },
+  {
+    "timestamp": "2026-06-02T14:59:45.843Z",
+    "mode": "distributed",
+    "base": "http://localhost:8080",
+    "rep": 2,
+    "votes": 60,
+    "concurrency": 25,
+    "wallSeconds": 4.76,
+    "throughputPerSec": 12.6,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 282.28,
+      "mean": 1669.32,
+      "p50": 1457.98,
+      "p95": 3389.73,
+      "p99": 4759.89,
+      "max": 4759.89
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:00:04.349Z",
+    "mode": "distributed",
+    "base": "http://localhost:8080",
+    "rep": 1,
+    "votes": 60,
+    "concurrency": 50,
+    "wallSeconds": 2.34,
+    "throughputPerSec": 25.6,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 198.53,
+      "mean": 1261.69,
+      "p50": 1279.02,
+      "p95": 1870.87,
+      "p99": 2343.12,
+      "max": 2343.12
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:00:22.250Z",
+    "mode": "distributed",
+    "base": "http://localhost:8080",
+    "rep": 2,
+    "votes": 60,
+    "concurrency": 50,
+    "wallSeconds": 2.58,
+    "throughputPerSec": 23.22,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 155.62,
+      "mean": 1309.98,
+      "p50": 1386.5,
+      "p95": 1966.17,
+      "p99": 2583.89,
+      "max": 2583.89
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:01:01.398Z",
+    "mode": "single-node",
+    "base": "http://localhost:3001",
+    "rep": 1,
+    "votes": 60,
+    "concurrency": 10,
+    "wallSeconds": 3.71,
+    "throughputPerSec": 16.16,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 28.48,
+      "mean": 560.57,
+      "p50": 284.14,
+      "p95": 2358.62,
+      "p99": 3711.2,
+      "max": 3711.2
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:01:21.035Z",
+    "mode": "single-node",
+    "base": "http://localhost:3001",
+    "rep": 2,
+    "votes": 60,
+    "concurrency": 10,
+    "wallSeconds": 4.42,
+    "throughputPerSec": 13.57,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 47.06,
+      "mean": 674.04,
+      "p50": 282.02,
+      "p95": 2698.83,
+      "p99": 4247.23,
+      "max": 4247.23
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:01:41.637Z",
+    "mode": "single-node",
+    "base": "http://localhost:3001",
+    "rep": 1,
+    "votes": 60,
+    "concurrency": 25,
+    "wallSeconds": 5.23,
+    "throughputPerSec": 11.47,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 44.65,
+      "mean": 1895.31,
+      "p50": 1220.19,
+      "p95": 4940.51,
+      "p99": 5068.06,
+      "max": 5068.06
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:02:02.223Z",
+    "mode": "single-node",
+    "base": "http://localhost:3001",
+    "rep": 2,
+    "votes": 60,
+    "concurrency": 25,
+    "wallSeconds": 5.42,
+    "throughputPerSec": 11.07,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 66.49,
+      "mean": 1887.62,
+      "p50": 1255.57,
+      "p95": 4618.57,
+      "p99": 5036.21,
+      "max": 5036.21
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:02:21.995Z",
+    "mode": "single-node",
+    "base": "http://localhost:3001",
+    "rep": 1,
+    "votes": 60,
+    "concurrency": 50,
+    "wallSeconds": 5.44,
+    "throughputPerSec": 11.02,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 230.47,
+      "mean": 3646.37,
+      "p50": 4088.17,
+      "p95": 4910.81,
+      "p99": 5298.33,
+      "max": 5298.33
+    }
+  },
+  {
+    "timestamp": "2026-06-02T15:02:41.876Z",
+    "mode": "single-node",
+    "base": "http://localhost:3001",
+    "rep": 2,
+    "votes": 60,
+    "concurrency": 50,
+    "wallSeconds": 5.29,
+    "throughputPerSec": 11.34,
+    "counts": {
+      "success": 60,
+      "alreadyVoted": 0,
+      "errors": 0
+    },
+    "endToEndLatencyMs": {
+      "count": 60,
+      "min": 224.44,
+      "mean": 3597.3,
+      "p50": 4119.28,
+      "p95": 4956.45,
+      "p99": 5288.31,
+      "max": 5288.31
+    }
+  }
+]

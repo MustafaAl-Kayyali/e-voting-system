@@ -1,0 +1,16 @@
+{
+  "name": "harness",
+  "version": "1.0.0",
+  "description": "A dependency-free harness (Node 18+ global `fetch`) for the four testing activities: **unit testing, concurrency/correctness, performance benchmarking, and experimental analysis.**",
+  "main": "analyze.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "docx": "^9.7.1",
+    "puppeteer-core": "^23.11.1"
+  }
+}

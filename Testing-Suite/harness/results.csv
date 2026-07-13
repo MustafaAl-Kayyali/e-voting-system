@@ -1,0 +1,7 @@
+mode,concurrency,reps,throughput_mean,throughput_std,lat_mean_ms,p95_ms,p99_ms,success,errors
+distributed,10,2,10.19,2.44,998.35,2563.02,4881.57,120,0
+distributed,25,2,12.96,0.36,1559.41,2917.29,3972.44,120,0
+distributed,50,2,24.41,1.19,1285.84,1918.52,2463.51,120,0
+single-node,10,2,14.87,1.3,617.31,2528.73,3979.21,120,0
+single-node,25,2,11.27,0.2,1891.47,4779.54,5052.14,120,0
+single-node,50,2,11.18,0.16,3621.84,4933.63,5293.32,120,0
