@@ -1,0 +1,8 @@
+.env
+debug_districts.js
+DistributedElectronicVotingSystem.pptx
+docker-compose.yml
+FIXES_APPLIED.md
+nginx.conf
+simulate_candidates.js
+test_load.js
